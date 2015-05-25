@@ -14,7 +14,6 @@ session_start();
 	<link type="text/css" rel="stylesheet" href="css/font-awesome.css"/>
 	<link type="text/css" rel="stylesheet" href="css/bootstrap.css"/>
 	<link type="text/css" rel="stylesheet" href="css/main.css"/>
-	<link type="text/css" rel="stylesheet" href="css/mail.css"/>
 	<!-- Icons -->
 
 	<!-- Title Web Site -->
@@ -24,6 +23,10 @@ session_start();
 
 	<!-- Boostrap Template -->
 	<div class="container-fluid">
+
+		<div class="inner-alert hidden">
+			<p class='alert-danger'><b class="info-alert"></b><em class="desc-alert"></em></p>
+		</div>
 
 		<div id="login" class="row">
 
@@ -63,11 +66,22 @@ session_start();
 					if (data == 1){
 						window.location = "admin.php";
 					}else{
-						alert("Las credenciales son incorrectas");
+						$(".info-alert").html("Error: ");
+						$(".desc-alert").html("Las credenciales son incorrectas.");
+						$(".inner-alert").removeClass("hidden");
+						setTimeout(function(){
+							$(".inner-alert").addClass("hidden");
+						}, 1500); 
 					}
 					
 				});
 			});
+
+			$(document).keydown(function (e){
+			    if(e.keyCode == 13){
+			        $( ".login" ).trigger( "click" );
+			    }
+			})
 		});
 	</script>
 	</body>

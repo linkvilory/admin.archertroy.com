@@ -9,29 +9,8 @@ include_once("query.php");
 
 function init(){
 
-	//echo buildFields(getQueryFields());
 	echo buildMostRecent();
 
-}
-
-function buildFields($array){
-
-	$html = '<div class="mailMenu">';
-	foreach ($array as $key => $value) {
-
-		$html .= '<div class="mailOptions"><input data-type="' . $array[$key] . '" type="checkbox" name="' . $array[$key] . '"/><p>' . $array[$key] . '</p></div>';
-
-	}
-
-	$html .= "</div>";
-	return $html;
-}
-
-function getQueryFields(){
-
-	$arrayQueryFields = array("Todos", "Id", "Nombre", "Correo", "Mensaje", "Newsletter", "Confirmado", "Fecha");
-
-	return $arrayQueryFields;
 }
 
 function buildMostRecent(){
@@ -41,4 +20,10 @@ function buildMostRecent(){
 }
 
 init();
+
 ?>
+
+<input class="botonCargar" type="button" id="masCorreos" name="Cargar más" value="Cargar más"/>
+<input class="botonNewsletter" type="button" id="newsletter" name="Obtener correos" value="Obtener correos"/>
+<input class="botonNewsletterConfirmado" type="button" id="newsletterConfirmado" name="Obtener correos confirmados" value="Obtener correos confirmados"/>
+<input class="exporter" type="button" id="exporter" name="Exportar" value="Exportar"/>

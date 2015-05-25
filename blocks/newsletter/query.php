@@ -27,11 +27,15 @@ function recentMails(){
 			if($field["newsletter"] == "true"){
 				$newsletter = "Si";
 			}
+			$confirm = "noconfirmado";
+			if($field["confirmado"] == 1){
+				$confirm = "confirmado";
+			}
 			$fecha = substr($field["fecha"], 0 , 10);
 			$fechaDummy = explode("-", $fecha);
 			$fecha = $fechaDummy[2] . "-" . $fechaDummy[1] . "-" . $fechaDummy[0];
 			$body = $field["mensaje"];
-			$html .= "<tr><td>". $field["nombre"] . "</td><td><a href='mailto:". $field["correo"] . "?&body=". $body ."'>". $field["correo"] . "</a></td><td><a class='mostrarMensaje' href='#'>Mostrar mensaje</a></td><td>". $newsletter . "</td><td>". $fecha . "</td></tr>";
+			$html .= "<tr><td>". $field["nombre"] . "</td><td><a href='mailto:". $field["correo"] . "?&body=". $body ."'>". $field["correo"] . "</a></td><td><a class='mostrarMensaje' href='#'>Mostrar mensaje</a></td><td><span class='" . $confirm . "'>". $newsletter . "</span></td><td>". $fecha . "</td></tr>";
 			$html .= "<tr><td class='hidden mensaje' colspan='5'><p>". $field["mensaje"]. "</p></td></tr>";
 
 		}

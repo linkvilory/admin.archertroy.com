@@ -48,6 +48,16 @@ h1 {
     font-weight: unset !important;
     letter-spacing: 1px !important;
 } 
+.inner-alert {
+    font-family: titleR;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+.logout > a {
+    background: none repeat scroll 0 0 red !important;
+    color: #fff !important;
+}
 /**
  * Seccion Login
  */
@@ -60,10 +70,44 @@ h1 {
     max-width: 260px;
     width: 100%;
 }
-#login input {
+#name, #pass {
     margin: 10px 0;
     width: 100%;
 } 
+#loginBttn:focus {
+    outline: 0
+    }
+
+#loginBttn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0
+    }
+
+#loginBttn {
+    background-color: #ccc;
+    border: medium none;
+    color: white;
+    margin: auto;
+    display: block;
+    font-family: textR;
+    font-size: 18px;
+    letter-spacing: 2px;
+    min-height: 32px;
+    min-width: 211px;
+    text-transform: uppercase;
+    position: relative;
+    -moz-transition: background-color 0.5s ease 0s;
+    -o-transition: background-color 0.5s ease 0s;
+    -webkit-transition: background-color 0.5s ease 0s;
+    transition: background-color 0.5s ease 0s;
+    vertical-align: middle
+    }
+
+#loginBttn:hover {
+    background-color: #7F7F7F
+    }
 /* Seccion login */ 
 /**
  * Seccion mailing
@@ -102,6 +146,12 @@ h1 {
     font-size: 14px;
     margin: 20px 0;
     padding: 0 10px;
+}
+.noconfirmado{
+    color: red;
+}
+.confirmado{
+    color: green;
 }
 /* End mailing */ 
 /** 
